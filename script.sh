@@ -3,12 +3,12 @@
 logfile=$(basename -s .sh "$0").log
 for i in {1..100}; do
     if [ $((i % 15)) -eq 0 ]; then
-        echo "FizzBuzz"
+        echo "FizzBuzz" | tee -a "$logfile"
     elif [ $((i % 5)) -eq 0 ]; then
-        echo "Buzz"
+        echo "Buzz" | tee -a "$logfile"
     elif [ $((i % 3)) -eq 0 ]; then
-        echo "Fizz"
+        echo "Fizz" | tee -a "$logfile"
     else
-        echo $i
+        echo $i | tee -a "$logfile"
     fi
 done
